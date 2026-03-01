@@ -137,6 +137,27 @@ body{
   opacity: .85;
 }
 
+
+.registrarse {
+  position: relative;
+  z-index: 2;
+  max-width: 520px;
+  padding-top: 10px;
+}
+
+.registrarse h1{
+  font-size: 46px;
+  font-weight: 900;
+  line-height: 1.05;
+  text-shadow: 0 8px 20px rgba(0,0,0,.35);
+}
+
+.registrarse p{
+  margin-top: 10px;
+  font-size: 18px;
+  opacity: .85;
+}
+
 /* =========================
    FORM CARD
 ========================= */
