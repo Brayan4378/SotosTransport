@@ -1,128 +1,321 @@
-/* Estilos generales */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #dad7cd; /* Fondo gris claro */
+/* =========================
+   RESET / BASE
+========================= */
+*{
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: #0a1f45;
+  color: #fff;
+}
+
+/* =========================
+   HEADER / TOPBAR
+========================= */
+#bannerSuperior{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  display: grid;
+  grid-template-columns: 260px 1fr 260px;
+  align-items: center;
+
+  height: 80px;          /* ← altura fija del banner */
+  padding: 0 18px;       /* quitamos padding vertical */
+
+  background: linear-gradient(180deg, rgba(15,45,99,.95), rgba(10,31,69,.92));
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+#logo{
+  height: 82px;      /* más pequeño que el banner */
+  width: 140px;       /* MUY IMPORTANTE */
+  object-fit: contain;
+}
+
+#menu{
+  justify-self: center;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+}
+
+#menu button{
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,.85);
+  cursor: pointer;
+  font-size: 14px;
+  padding: 8px 10px;
+  white-space: nowrap;
+}
+
+#menu button:hover{
+  color: #fff;
+}
+
+#comprarAhora{
+  justify-self: end;
+  background: linear-gradient(180deg, #ffcc4d, #f4b316);
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 800;
+  cursor: pointer;
+  color: #1f2a44;
+  box-shadow: 0 10px 25px rgba(244,179,22,.25);
+  white-space: nowrap;
+}
+
+/* =========================
+   HERO / CONTENEDOR
+========================= */
+.contenedor{
+  position: relative;
+  min-height: calc(100vh - 74px);
+  overflow: hidden;
+
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+
+  padding: 50px 18px 40px;
+}
+
+/* Imagen como fondo */
+#imagenBus{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+  z-index: 0;
+}
+
+/* Overlay */
+.overlay{
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(5,16,38,.70) 0%,
+    rgba(5,16,38,.35) 45%,
+    rgba(5,16,38,.55) 100%
+  );
+  z-index: 1;
+}
+
+/* ✅ Tu bloque de texto (antes heroText) */
+.iniciarSesion{
+  position: relative;
+  z-index: 2;
+  max-width: 520px;
+  padding-top: 10px;
+}
+
+.iniciarSesion h1{
+  font-size: 46px;
+  font-weight: 900;
+  line-height: 1.05;
+  text-shadow: 0 8px 20px rgba(0,0,0,.35);
+}
+
+.iniciarSesion p{
+  margin-top: 10px;
+  font-size: 18px;
+  opacity: .85;
+}
+
+/* =========================
+   FORM CARD
+========================= */
+#formulario{
+  position: relative;
+  z-index: 3;
+  width: 420px;
+  max-width: 100%;
+
+  padding: 22px;
+  border-radius: 16px;
+
+  background: rgba(10,31,69,.70);
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 18px 45px rgba(0,0,0,.40);
+  backdrop-filter: blur(8px);
+}
+
+#formulario h2{
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+#formulario .sub{
+  font-size: 13px;
+  opacity: .8;
+  margin-bottom: 14px;
+}
+
+#FormularioLogin{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#FormularioLogin label{
+  font-size: 12px;
+  opacity: .9;
+}
+
+#FormularioLogin input{
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.15);
+  outline: none;
+  background: rgba(255,255,255,.95);
+  color: #1f2a44;
+}
+
+#FormularioLogin input:focus{
+  border-color: rgba(255,204,77,.9);
+  box-shadow: 0 0 0 3px rgba(255,204,77,.25);
+}
+
+#btnLogin{
+  margin-top: 10px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 900;
+  background: linear-gradient(180deg, #ffcc4d, #f4b316);
+  color: #1f2a44;
+}
+
+#btnLogin:hover{
+  filter: brightness(1.02);
+}
+
+#olvidaste{
+  margin-top: 6px;
+  text-align: center;
+  color: rgba(255,255,255,.85);
+  text-decoration: none;
+  font-size: 13px;
+}
+
+#olvidaste:hover{
+  text-decoration: underline;
+}
+
+.registro{
+  margin-top: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  opacity: .95;
+}
+
+#btnRegistrar{
+  background: transparent;
+  border: none;
+  color: #ffcc4d;
+  font-weight: 900;
+  cursor: pointer;
   padding: 0;
 }
 
-/* Encabezado principal */
-h1 {
-  color: #ccd5ae; /* Azul oscuro */
-  text-align: center;
-  padding: 20px;
-  background-color: #274c77; /* Azul brillante */
-  color: white;
-  margin: 0;
+#btnRegistrar:hover{
+  text-decoration: underline;
 }
 
-/* Banner */
-#banner {
-  background-color: #274c77; /* Azul más oscuro */
-  color: white;
-  text-align: center;
-  padding: 15px;
-  font-size: 18px;
+/* =========================
+   FOOTER (tu #piePagina)
+========================= */
+#piePagina{
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+
+  padding: 22px 18px;
+  background: rgba(10,31,69,.90);
+  border-top: 1px solid rgba(255,255,255,.08);
 }
 
-/* Imagen principal */
-img {
-  display: block;
-  margin: 20px auto;
-  max-width: 80%;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+#contactInfo h3{
+  margin-bottom: 10px;
 }
 
-/* Botones generales */
-button {
-  margin: 10px;
-  padding: 10px 20px;
-  background-color: #274c77;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+#contactInfo p{
+  opacity: .9;
+  margin: 6px 0;
+  font-size: 14px;
 }
 
-button:hover {
-  background-color: #274c77;
+#mapa{
+  width: 360px;
+  height: 120px;
+  max-width: 45vw;
+  border-radius: 12px;
+  background: rgba(255,255,255,.14);
+  border: 1px solid rgba(255,255,255,.10);
 }
 
-/* Formulario */
-form {
-  max-width: 400px;
-  margin: 20px auto;
-  padding: 20px;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px){
+  #bannerSuperior{
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+  }
 
-label {
-  display: block;
-  margin-top: 10px;
-  font-weight: bold;
-}
+  #menu{
+    display: none;
+  }
 
-input {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-/* Contenedor principal: imagen + formulario */
-.contenedor {
-  display: flex;              /* Activa flexbox */
-  justify-content: space-around; /* Espacio entre elementos */
-  align-items: flex-start;    /* Alinea arriba */
-  margin: 20px;
-}
+  #logo{
+    width: 160px;
+    height: 44px;
+  }
 
-/* Imagen a la izquierda */
-.contenedor img {
-  max-width: 45%;             /* Que ocupe menos de la mitad */
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-}
+  .contenedor{
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
 
-/* Formulario a la derecha */
-.contenedor form {
-  max-width: 40%;             /* Que ocupe menos de la mitad */
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
+  .iniciarSesion{
+    max-width: 100%;
+  }
 
-/* Campos del formulario */
-.contenedor form label {
-  display: block;
-  margin-top: 10px;
-  font-weight: bold;
-}
+  #formulario{
+    width: 100%;
+    max-width: 520px;
+    margin-top: 10px;
+  }
 
-.contenedor form input {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
+  #piePagina{
+    flex-direction: column;
+  }
 
-/* Botones */
-.contenedor form button {
-  margin-top: 15px;
-  width: 100%;
-  padding: 10px;
-  background-color: #3498db;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.contenedor form button:hover {
-  background-color: #1f618d;
+  #mapa{
+    width: 100%;
+    max-width: 100%;
+  }
 }
