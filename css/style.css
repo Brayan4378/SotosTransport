@@ -1,0 +1,128 @@
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #dad7cd; /* Fondo gris claro */
+  margin: 0;
+  padding: 0;
+}
+
+/* Encabezado principal */
+h1 {
+  color: #ccd5ae; /* Azul oscuro */
+  text-align: center;
+  padding: 20px;
+  background-color: #274c77; /* Azul brillante */
+  color: white;
+  margin: 0;
+}
+
+/* Banner */
+#banner {
+  background-color: #274c77; /* Azul más oscuro */
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 18px;
+}
+
+/* Imagen principal */
+img {
+  display: block;
+  margin: 20px auto;
+  max-width: 80%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+/* Botones generales */
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #274c77;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #274c77;
+}
+
+/* Formulario */
+form {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+/* Contenedor principal: imagen + formulario */
+.contenedor {
+  display: flex;              /* Activa flexbox */
+  justify-content: space-around; /* Espacio entre elementos */
+  align-items: flex-start;    /* Alinea arriba */
+  margin: 20px;
+}
+
+/* Imagen a la izquierda */
+.contenedor img {
+  max-width: 45%;             /* Que ocupe menos de la mitad */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+/* Formulario a la derecha */
+.contenedor form {
+  max-width: 40%;             /* Que ocupe menos de la mitad */
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Campos del formulario */
+.contenedor form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.contenedor form input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Botones */
+.contenedor form button {
+  margin-top: 15px;
+  width: 100%;
+  padding: 10px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.contenedor form button:hover {
+  background-color: #1f618d;
+}
