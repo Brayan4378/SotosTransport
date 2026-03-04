@@ -1,4 +1,6 @@
-/* RESET */
+/* ========================================
+   RESET
+======================================== */
 * {
   margin: 0;
   padding: 0;
@@ -11,31 +13,29 @@ body {
   color: #fff;
 }
 
-/* HEADER */
+/* ========================================
+   HEADER
+======================================== */
 #bannerSuperior {
   position: sticky;
   top: 0;
   z-index: 1000;
 
   display: grid;
-  grid-template-columns: 260px 1fr 260px;
+  grid-template-columns: 220px 1fr 200px;
   align-items: center;
 
   height: 80px;
-  padding: 0 18px;
+  padding: 0 20px;
 
-  background: linear-gradient(180deg, rgba(15, 45, 99, .95), rgba(10, 31, 69, .92));
-  border-bottom: 1px solid rgba(255, 255, 255, .08);
+  background: linear-gradient(180deg, #0f2d63, #0a1f45);
 }
 
 #logo {
-  height: 60px;
-  width: auto;
-  object-fit: contain;
+  height: 55px;
 }
 
 #menu {
-  justify-self: center;
   display: flex;
   justify-content: center;
   gap: 18px;
@@ -44,45 +44,41 @@ body {
 #menu button {
   background: transparent;
   border: none;
-  color: rgba(255, 255, 255, .85);
+  color: #fff;
   cursor: pointer;
   font-size: 14px;
-  padding: 8px 10px;
-  white-space: nowrap;
 }
 
 #menu button:hover {
-  color: #fff;
+  opacity: .7;
 }
 
 #comprarAhora {
   justify-self: end;
+
   background: linear-gradient(180deg, #ffcc4d, #f4b316);
-  border: none;
-  padding: 10px 14px;
-  border-radius: 10px;
-  font-weight: 800;
-  cursor: pointer;
   color: #1f2a44;
-  box-shadow: 0 10px 25px rgba(244, 179, 22, .25);
-  white-space: nowrap;
+
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-
+/* ========================================
+   HERO / CONTENEDOR CON IMAGEN
+======================================== */
 .contenedor {
   position: relative;
   min-height: calc(100vh - 80px);
-
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   gap: 40px;
-
-  padding: 50px 18px 40px;
+  padding: 60px 40px;
   overflow: hidden;
 }
 
@@ -92,382 +88,157 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: scale(1.02);
   z-index: 0;
 }
 
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg,
-      rgba(5, 16, 38, .70) 0%,
-      rgba(5, 16, 38, .35) 45%,
-      rgba(5, 16, 38, .55) 100%);
+  background: rgba(0, 0, 0, .55);
   z-index: 1;
 }
 
-.eslogan {
-  position: relative;
-  z-index: 2;
-  max-width: 520px;
-  padding-top: 10px;
-}
-
-.eslogan h1 {
-  font-size: 46px;
-  font-weight: 900;
-  line-height: 1.05;
-  text-shadow: 0 8px 20px rgba(0, 0, 0, .35);
-}
-
-.eslogan p {
-  margin-top: 10px;
-  font-size: 30px;
-  opacity: .85;
-  color: #ffcc4d;
-  font-weight: 800;
-}
-
-
-.iniciarSesion {
-  position: relative;
-  z-index: 2;
-  max-width: 520px;
-  padding-top: 10px;
-}
-
-.iniciarSesion h1 {
-  font-size: 46px;
-  font-weight: 900;
-  line-height: 1.05;
-  text-shadow: 0 8px 20px rgba(0, 0, 0, .35);
-}
-
-.iniciarSesion p {
-  margin-top: 10px;
-  font-size: 30px;
-  opacity: .85;
-  color: #ffcc4d;
-  font-weight: 800;
-}
-
+/* ========================================
+   TEXTOS GRANDES (eslogan/login/registro)
+======================================== */
+.eslogan,
+.iniciarSesion,
 .registrarse {
   position: relative;
   z-index: 2;
   max-width: 520px;
-  padding-top: 10px;
 }
 
+.eslogan h1,
+.iniciarSesion h1,
 .registrarse h1 {
   font-size: 46px;
   font-weight: 900;
-  line-height: 1.05;
-  text-shadow: 0 8px 20px rgba(0, 0, 0, .35);
 }
 
+.eslogan p,
+.iniciarSesion p,
 .registrarse p {
   margin-top: 10px;
-  font-size: 30px;
-  opacity: .85;
+  font-size: 28px;
   color: #ffcc4d;
   font-weight: 800;
 }
 
-/* INFO VIAJE */
-.infoViaje {
+/* ========================================
+   FORMULARIOS (login, registro, infoViaje)
+======================================== */
+.infoViaje,
+#FormularioLogin,
+.reservaViaje {
   position: relative;
-  z-index: 3;
+  z-index: 2;
 
-  width: 420px;
-  max-width: 100%;
-
+  background: rgba(10, 31, 69, .85);
   padding: 24px;
   border-radius: 18px;
 
-  background: rgba(10, 31, 69, .75);
-  border: 1px solid rgba(255, 255, 255, .12);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, .45);
-  backdrop-filter: blur(10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, .45);
 }
 
+/* vertical */
+#FormularioLogin,
 .infoViaje form {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  width: 380px;
 }
 
-.infoViaje label {
-  font-size: 13px;
-  font-weight: 600;
-  opacity: .9;
-}
-
-.infoViaje select,
-.infoViaje input {
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, .15);
-  background: rgba(255, 255, 255, .95);
-  color: #1f2a44;
-  font-size: 14px;
-  outline: none;
-}
-
-.infoViaje button {
-  margin-top: 8px;
-  padding: 14px;
-  border-radius: 12px;
+#FormularioLogin input,
+.infoViaje input,
+.infoViaje select {
+  padding: 11px 12px;
+  border-radius: 10px;
   border: none;
-  cursor: pointer;
-  font-weight: 800;
-  font-size: 15px;
+}
+
+/* botones amarillos */
+#FormularioLogin button[type="submit"],
+.infoViaje button,
+.reservaViaje button {
   background: linear-gradient(180deg, #ffcc4d, #f4b316);
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
   color: #1f2a44;
+  margin: 0 auto;
 }
 
-.infoViaje button:hover {
-  filter: brightness(1.02);
-}
-
-/* NUESTROS SERVICIOS */
-.nuestrosServicios {
-  text-align: center;
-  padding: 60px 20px;
-  background: #0a1f45;
-  color: #fff;
-}
-
-.nuestrosServicios h2 {
-  font-size: 32px;
-  font-weight: 900;
-  margin-bottom: 40px;
+/* boton texto amarillo (Inicia sesión / Regístrate) */
+#btnRegistrar,
+#olvidaste {
+  background: none;
+  border: none;
   color: #ffcc4d;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
 }
 
-.servicios {
+#btnRegistrar:hover,
+#olvidaste:hover {
+  text-decoration: underline;
+}
+
+/* ========================================
+   RESERVA TIPO AVIanca (horizontal)
+======================================== */
+.reservaViaje form {
   display: flex;
-  justify-content: center;
-  gap: 40px;
+  align-items: center;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
-.servicio {
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  padding: 20px;
-  width: 280px;
-  text-align: center;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.reservaViaje select,
+.reservaViaje input {
+  min-width: 130px;
 }
 
-.servicio:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
-}
-
-.servicio img {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  margin-bottom: 15px;
-}
-
-.servicio h3 {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 10px;
-  color: #ffcc4d;
-}
-
-.servicio p {
-  font-size: 14px;
-  line-height: 1.5;
-  opacity: 0.9;
-}
-
-/* FOOTER */
-#piePagina {
-  display: flex;
-  justify-content: space-between;
-  gap: 18px;
-
-  padding: 22px 18px;
-  background: rgba(10, 31, 69, .90);
-  border-top: 1px solid rgba(255, 255, 255, .08);
-}
-
-#contactInfo h3 {
-  margin-bottom: 10px;
-}
-
-#contactInfo p {
-  opacity: .9;
-  margin: 6px 0;
-  font-size: 14px;
-}
-
-#mapa {
-  width: 360px;
-  height: 120px;
-  max-width: 45vw;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, .14);
-  border: 1px solid rgba(255, 255, 255, .10);
-}
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  #bannerSuperior {
-    grid-template-columns: 1fr auto;
-    gap: 12px;
-  }
-
-  #menu {
-    display: none;
-  }
-
-  .contenedor {
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
-  }
-
-  .infoViaje {
-    width: 100%;
-    max-width: 520px;
-    margin-top: 12px;
-  }
-
-  #piePagina {
-    flex-direction: column;
-  }
-
-  #mapa {
-    width: 100%;
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
-  .servicios {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .servicio {
-    width: 90%;
-  }
-
-
-}
-
-/* HORARIOS DESTACADOS */
+/* ========================================
+   SECCIONES (servicios, medios, horarios)
+======================================== */
+.nuestrosServicios,
+.nuestrosMedios,
 .horariosDestacados {
-  text-align: center;
   padding: 60px 20px;
-  background: #0a1f45;
-  /* mantiene el fondo azul del sitio */
-  color: #fff;
+  text-align: center;
 }
 
+.nuestrosServicios h2,
+.nuestrosMedios h2,
 .horariosDestacados h2 {
-  font-size: 32px;
-  font-weight: 900;
-  margin-bottom: 40px;
   color: #ffcc4d;
+  margin-bottom: 35px;
+  font-size: 30px;
 }
 
+.servicios,
+.medios,
 .horarios {
   display: flex;
   justify-content: center;
-  /* centra horizontalmente */
-  gap: 40px;
+  gap: 30px;
   flex-wrap: wrap;
 }
 
+/* tarjetas */
+.servicio,
+.medio,
 .horario {
-  background: #fff;
-  /* fondo blanco */
-  color: #1f2a44;
-  /* texto oscuro para contraste */
-  border-radius: 12px;
+  background: rgba(255, 255, 255, .08);
   padding: 20px;
-  width: 280px;
-  text-align: center;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.horario:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
-}
-
-.horario h3 {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 10px;
-  color: #0a1f45;
-  /* azul oscuro para títulos */
-}
-
-.horario p {
-  font-size: 14px;
-  line-height: 1.5;
-  opacity: 0.9;
-}
-
-/* Responsivo */
-@media (max-width: 768px) {
-  .horarios {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .horario {
-    width: 90%;
-  }
-}
-
-/* NUESTROS MEDIOS DE TRANSPORTE */
-.nuestrosMedios {
-  text-align: center;
-  padding: 60px 20px;
-  background: #0a1f45;
-  color: #fff;
-}
-
-.nuestrosMedios h2 {
-  font-size: 32px;
-  font-weight: 900;
-  margin-bottom: 40px;
-  color: #ffcc4d;
-}
-
-.medios {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-
-.medio {
-  background: rgba(255, 255, 255, 0.08);
   border-radius: 12px;
-  padding: 20px;
   width: 280px;
-  text-align: center;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.medio:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .3);
 }
 
 .medio img {
@@ -475,210 +246,176 @@ body {
   height: 160px;
   object-fit: cover;
   border-radius: 8px;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
-.medio h3 {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 10px;
-  color: #ffcc4d;
-}
-
-.medio p {
-  font-size: 14px;
-  line-height: 1.5;
-  opacity: 0.9;
-}
-
-/* Responsivo */
-@media (max-width: 768px) {
-  .medios {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .medio {
-    width: 90%;
-  }
-}
-
-#FormularioLogin {
-  position: relative;
-  z-index: 3;
-
-  width: 420px;
-  max-width: 100%;
-
-  padding: 24px;
-  border-radius: 18px;
-
-  background: rgba(10, 31, 69, .75);
-  border: 1px solid rgba(255, 255, 255, .12);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, .45);
-  backdrop-filter: blur(10px);
-
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-#FormularioLogin button[type="submit"] {
-  width: 60%;
-  /* mas pequeño */
-  align-self: center;
-  /* lo centra */
-  padding: 10px;
-  border-radius: 10px;
-  border: none;
-  font-weight: 700;
-  cursor: pointer;
-
-  background: linear-gradient(180deg, #ffcc4d, #f4b316);
-  color: #1f2a44;
-}
-
-#btnRegistrar {
-  background: transparent;
-  /* sin fondo */
-  border: none;
-  /* sin borde */
-  color: #ffcc4d;
-  /* amarillo */
-  font-weight: 700;
-  cursor: pointer;
-  padding: 0;
-  font-size: 14px;
-}
-
-#btnRegistra:hover {
-  text-decoration: underline;
-  opacity: 0.9;
-}
-
-/* ===== DESTINOS (Cali, Bogota, Medellin) ===== */
-
+/* ========================================
+   DESTINOS (cali, bogota, medellin)
+======================================== */
 #cali,
 #bogota,
 #medellin {
   max-width: 1000px;
   margin: 50px auto;
   padding: 30px;
-
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 18px;
-
+  background: rgba(255, 255, 255, .08);
+  border-radius: 16px;
   text-align: center;
-
-  box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
-  backdrop-filter: blur(6px);
-
-  transition: transform .25s ease, box-shadow .25s ease;
 }
 
-#cali:hover,
-#bogota:hover,
-#medellin:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, .45);
-}
-
-/* titulos */
-#cali h1,
-#bogota h1,
-#medellin h1 {
-  color: #ffcc4d;
-  font-size: 32px;
-  font-weight: 900;
-  margin-bottom: 20px;
-}
-
-/* imagenes */
 #cali img,
 #bogota img,
 #medellin img {
   width: 100%;
   max-height: 350px;
   object-fit: cover;
-
   border-radius: 12px;
-  margin-bottom: 20px;
+  margin: 18px 0;
 }
 
-/* textos */
-#cali p,
-#bogota p,
-#medellin p {
-  font-size: 16px;
-  line-height: 1.6;
-  opacity: 0.9;
-  max-width: 800px;
-  margin: 0 auto;
+/* ========================================
+   OFERTAS (cards estilo avianca)
+======================================== */
+#ofertas {
+  padding: 60px 20px;
+  text-align: center;
 }
 
-/* ===== RESERVA ESTILO BARRA (tipo avianca) ===== */
-
-.reservaViaje {
-  position: relative;
-  z-index: 3;
-
-  width: 96%;
-  max-width: 1200px;
-  margin: 60px auto;
-
-  padding: 18px 22px;
-
-  background: rgba(50, 53, 69, 0.95);
-  border-radius: 20px;
-
-  box-shadow: 0 15px 40px rgba(0, 0, 0, .25);
+#ofertas h2 {
+  color: #ffcc4d;
+  margin-bottom: 30px;
 }
 
-/* form horizontal */
-.reservaViaje form {
+.ofertas {
   display: flex;
-  align-items: center;
-  gap: 14px;
+  gap: 25px;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
-/* radios juntos */
-.reservaViaje label {
-  font-size: 14px;
-  font-weight: 600;
-  color: #ffffff;
-}
-
-/* inputs y selects */
-.reservaViaje select,
-.reservaViaje input[type="date"],
-.reservaViaje input[type="number"] {
-  padding: 10px 12px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-  font-size: 14px;
-  min-width: 140px;
-}
-
-/* boton grande a la derecha */
-.reservaViaje button {
-  margin: 0 auto;
-  /* lo centra horizontalmente */
-
-  padding: 12px 26px;
-  border-radius: 14px;
-  border: none;
-
-  font-weight: 800;
-  font-size: 15px;
-
+.card-oferta {
+  position: relative;
+  width: 340px;
+  height: 220px;
+  border-radius: 20px;
+  overflow: hidden;
   cursor: pointer;
-
-  background: linear-gradient(180deg, #ffcc4d, #f4b316);
-  color: #1f2a44;
 }
 
-.reservaViaje button:hover {
-  filter: brightness(1.05);
+.card-oferta img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.info {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  right: 12px;
+
+  background: rgba(255, 255, 255, .9);
+  color: #1f2a44;
+
+  border-radius: 16px;
+  padding: 10px;
+}
+
+.millas {
+  background: #cfe7f7;
+  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: 10px;
+  float: right;
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+#piePagina {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 30px;
+  background: #071632;
+  margin-top: 50px;
+}
+
+#mapa {
+  width: 300px;
+  height: 120px;
+  background: #fff2;
+  border-radius: 10px;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+@media(max-width:900px) {
+
+  .contenedor {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #menu {
+    display: none;
+  }
+
+  #piePagina {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+/* ===== SECCION SERVICIOS ===== */
+
+.nuestrosServicios {
+    padding: 70px 10%;
+    background: #f5f7fa;
+    text-align: center;
+}
+
+.nuestrosServicios h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #0b1f3a;
+}
+
+/* contenedor horizontal */
+.servicios {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; /* responsive */
+}
+
+/* tarjetas */
+.servicio {
+    background: white;
+    width: 300px;
+    padding: 30px 25px;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: 0.25s;
+}
+
+.servicio:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+}
+
+.servicio img {
+    width: 70px;
+    margin-bottom: 18px;
+}
+
+.servicio h3 {
+    margin-bottom: 12px;
+    color: #0b1f3a;
+}
+
+.servicio p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
 }
