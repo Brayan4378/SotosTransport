@@ -1,128 +1,684 @@
-/* Estilos generales */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #dad7cd; /* Fondo gris claro */
+/* RESET */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-/* Encabezado principal */
-h1 {
-  color: #ccd5ae; /* Azul oscuro */
-  text-align: center;
-  padding: 20px;
-  background-color: #274c77; /* Azul brillante */
-  color: white;
-  margin: 0;
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: #0a1f45;
+  color: #fff;
 }
 
-/* Banner */
-#banner {
-  background-color: #274c77; /* Azul más oscuro */
-  color: white;
-  text-align: center;
-  padding: 15px;
-  font-size: 18px;
+/* HEADER */
+#bannerSuperior {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  display: grid;
+  grid-template-columns: 260px 1fr 260px;
+  align-items: center;
+
+  height: 80px;
+  padding: 0 18px;
+
+  background: linear-gradient(180deg, rgba(15, 45, 99, .95), rgba(10, 31, 69, .92));
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
 }
 
-/* Imagen principal */
-img {
-  display: block;
-  margin: 20px auto;
-  max-width: 80%;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+#logo {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
 }
 
-/* Botones generales */
-button {
-  margin: 10px;
-  padding: 10px 20px;
-  background-color: #274c77;
-  color: white;
+#menu {
+  justify-self: center;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+}
+
+#menu button {
+  background: transparent;
   border: none;
-  border-radius: 5px;
+  color: rgba(255, 255, 255, .85);
   cursor: pointer;
+  font-size: 14px;
+  padding: 8px 10px;
+  white-space: nowrap;
 }
 
-button:hover {
-  background-color: #274c77;
+#menu button:hover {
+  color: #fff;
 }
 
-/* Formulario */
-form {
-  max-width: 400px;
-  margin: 20px auto;
-  padding: 20px;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+#comprarAhora {
+  justify-self: end;
+  background: linear-gradient(180deg, #ffcc4d, #f4b316);
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 800;
+  cursor: pointer;
+  color: #1f2a44;
+  box-shadow: 0 10px 25px rgba(244, 179, 22, .25);
+  white-space: nowrap;
 }
 
-label {
-  display: block;
-  margin-top: 10px;
-  font-weight: bold;
-}
 
-input {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-/* Contenedor principal: imagen + formulario */
 .contenedor {
-  display: flex;              /* Activa flexbox */
-  justify-content: space-around; /* Espacio entre elementos */
-  align-items: flex-start;    /* Alinea arriba */
-  margin: 20px;
+  position: relative;
+  min-height: calc(100vh - 80px);
+
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+
+  padding: 50px 18px 40px;
+  overflow: hidden;
 }
 
-/* Imagen a la izquierda */
-.contenedor img {
-  max-width: 45%;             /* Que ocupe menos de la mitad */
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+#imagenBus {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+  z-index: 0;
 }
 
-/* Formulario a la derecha */
-.contenedor form {
-  max-width: 40%;             /* Que ocupe menos de la mitad */
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+      rgba(5, 16, 38, .70) 0%,
+      rgba(5, 16, 38, .35) 45%,
+      rgba(5, 16, 38, .55) 100%);
+  z-index: 1;
 }
 
-/* Campos del formulario */
-.contenedor form label {
-  display: block;
+.eslogan {
+  position: relative;
+  z-index: 2;
+  max-width: 520px;
+  padding-top: 10px;
+}
+
+.eslogan h1 {
+  font-size: 46px;
+  font-weight: 900;
+  line-height: 1.05;
+  text-shadow: 0 8px 20px rgba(0, 0, 0, .35);
+}
+
+.eslogan p {
   margin-top: 10px;
-  font-weight: bold;
+  font-size: 30px;
+  opacity: .85;
+  color: #ffcc4d;
+  font-weight: 800;
 }
 
-.contenedor form input {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+
+.iniciarSesion {
+  position: relative;
+  z-index: 2;
+  max-width: 520px;
+  padding-top: 10px;
 }
 
-/* Botones */
-.contenedor form button {
-  margin-top: 15px;
+.iniciarSesion h1 {
+  font-size: 46px;
+  font-weight: 900;
+  line-height: 1.05;
+  text-shadow: 0 8px 20px rgba(0, 0, 0, .35);
+}
+
+.iniciarSesion p {
+  margin-top: 10px;
+  font-size: 30px;
+  opacity: .85;
+  color: #ffcc4d;
+  font-weight: 800;
+}
+
+.registrarse {
+  position: relative;
+  z-index: 2;
+  max-width: 520px;
+  padding-top: 10px;
+}
+
+.registrarse h1 {
+  font-size: 46px;
+  font-weight: 900;
+  line-height: 1.05;
+  text-shadow: 0 8px 20px rgba(0, 0, 0, .35);
+}
+
+.registrarse p {
+  margin-top: 10px;
+  font-size: 30px;
+  opacity: .85;
+  color: #ffcc4d;
+  font-weight: 800;
+}
+
+/* INFO VIAJE */
+.infoViaje {
+  position: relative;
+  z-index: 3;
+
+  width: 420px;
+  max-width: 100%;
+
+  padding: 24px;
+  border-radius: 18px;
+
+  background: rgba(10, 31, 69, .75);
+  border: 1px solid rgba(255, 255, 255, .12);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, .45);
+  backdrop-filter: blur(10px);
+}
+
+.infoViaje form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.infoViaje label {
+  font-size: 13px;
+  font-weight: 600;
+  opacity: .9;
+}
+
+.infoViaje select,
+.infoViaje input {
   width: 100%;
-  padding: 10px;
-  background-color: #3498db;
-  color: white;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, .15);
+  background: rgba(255, 255, 255, .95);
+  color: #1f2a44;
+  font-size: 14px;
+  outline: none;
+}
+
+.infoViaje button {
+  margin-top: 8px;
+  padding: 14px;
+  border-radius: 12px;
   border: none;
-  border-radius: 4px;
   cursor: pointer;
+  font-weight: 800;
+  font-size: 15px;
+  background: linear-gradient(180deg, #ffcc4d, #f4b316);
+  color: #1f2a44;
 }
 
-.contenedor form button:hover {
-  background-color: #1f618d;
+.infoViaje button:hover {
+  filter: brightness(1.02);
+}
+
+/* NUESTROS SERVICIOS */
+.nuestrosServicios {
+  text-align: center;
+  padding: 60px 20px;
+  background: #0a1f45;
+  color: #fff;
+}
+
+.nuestrosServicios h2 {
+  font-size: 32px;
+  font-weight: 900;
+  margin-bottom: 40px;
+  color: #ffcc4d;
+}
+
+.servicios {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.servicio {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 20px;
+  width: 280px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.servicio:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+.servicio img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.servicio h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #ffcc4d;
+}
+
+.servicio p {
+  font-size: 14px;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+/* FOOTER */
+#piePagina {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+
+  padding: 22px 18px;
+  background: rgba(10, 31, 69, .90);
+  border-top: 1px solid rgba(255, 255, 255, .08);
+}
+
+#contactInfo h3 {
+  margin-bottom: 10px;
+}
+
+#contactInfo p {
+  opacity: .9;
+  margin: 6px 0;
+  font-size: 14px;
+}
+
+#mapa {
+  width: 360px;
+  height: 120px;
+  max-width: 45vw;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, .14);
+  border: 1px solid rgba(255, 255, 255, .10);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  #bannerSuperior {
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+  }
+
+  #menu {
+    display: none;
+  }
+
+  .contenedor {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+
+  .infoViaje {
+    width: 100%;
+    max-width: 520px;
+    margin-top: 12px;
+  }
+
+  #piePagina {
+    flex-direction: column;
+  }
+
+  #mapa {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .servicios {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .servicio {
+    width: 90%;
+  }
+
+
+}
+
+/* HORARIOS DESTACADOS */
+.horariosDestacados {
+  text-align: center;
+  padding: 60px 20px;
+  background: #0a1f45;
+  /* mantiene el fondo azul del sitio */
+  color: #fff;
+}
+
+.horariosDestacados h2 {
+  font-size: 32px;
+  font-weight: 900;
+  margin-bottom: 40px;
+  color: #ffcc4d;
+}
+
+.horarios {
+  display: flex;
+  justify-content: center;
+  /* centra horizontalmente */
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.horario {
+  background: #fff;
+  /* fondo blanco */
+  color: #1f2a44;
+  /* texto oscuro para contraste */
+  border-radius: 12px;
+  padding: 20px;
+  width: 280px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.horario:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+.horario h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #0a1f45;
+  /* azul oscuro para títulos */
+}
+
+.horario p {
+  font-size: 14px;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .horarios {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .horario {
+    width: 90%;
+  }
+}
+
+/* NUESTROS MEDIOS DE TRANSPORTE */
+.nuestrosMedios {
+  text-align: center;
+  padding: 60px 20px;
+  background: #0a1f45;
+  color: #fff;
+}
+
+.nuestrosMedios h2 {
+  font-size: 32px;
+  font-weight: 900;
+  margin-bottom: 40px;
+  color: #ffcc4d;
+}
+
+.medios {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.medio {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 20px;
+  width: 280px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.medio:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+.medio img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.medio h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #ffcc4d;
+}
+
+.medio p {
+  font-size: 14px;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .medios {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .medio {
+    width: 90%;
+  }
+}
+
+#FormularioLogin {
+  position: relative;
+  z-index: 3;
+
+  width: 420px;
+  max-width: 100%;
+
+  padding: 24px;
+  border-radius: 18px;
+
+  background: rgba(10, 31, 69, .75);
+  border: 1px solid rgba(255, 255, 255, .12);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, .45);
+  backdrop-filter: blur(10px);
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#FormularioLogin button[type="submit"] {
+  width: 60%;
+  /* mas pequeño */
+  align-self: center;
+  /* lo centra */
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+
+  background: linear-gradient(180deg, #ffcc4d, #f4b316);
+  color: #1f2a44;
+}
+
+#btnRegistrar {
+  background: transparent;
+  /* sin fondo */
+  border: none;
+  /* sin borde */
+  color: #ffcc4d;
+  /* amarillo */
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  font-size: 14px;
+}
+
+#btnRegistra:hover {
+  text-decoration: underline;
+  opacity: 0.9;
+}
+
+/* ===== DESTINOS (Cali, Bogota, Medellin) ===== */
+
+#cali,
+#bogota,
+#medellin {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 30px;
+
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+
+  text-align: center;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+  backdrop-filter: blur(6px);
+
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+#cali:hover,
+#bogota:hover,
+#medellin:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .45);
+}
+
+/* titulos */
+#cali h1,
+#bogota h1,
+#medellin h1 {
+  color: #ffcc4d;
+  font-size: 32px;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+/* imagenes */
+#cali img,
+#bogota img,
+#medellin img {
+  width: 100%;
+  max-height: 350px;
+  object-fit: cover;
+
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+/* textos */
+#cali p,
+#bogota p,
+#medellin p {
+  font-size: 16px;
+  line-height: 1.6;
+  opacity: 0.9;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ===== RESERVA ESTILO BARRA (tipo avianca) ===== */
+
+.reservaViaje {
+  position: relative;
+  z-index: 3;
+
+  width: 96%;
+  max-width: 1200px;
+  margin: 60px auto;
+
+  padding: 18px 22px;
+
+  background: rgba(50, 53, 69, 0.95);
+  border-radius: 20px;
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, .25);
+}
+
+/* form horizontal */
+.reservaViaje form {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* radios juntos */
+.reservaViaje label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* inputs y selects */
+.reservaViaje select,
+.reservaViaje input[type="date"],
+.reservaViaje input[type="number"] {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  min-width: 140px;
+}
+
+/* boton grande a la derecha */
+.reservaViaje button {
+  margin: 0 auto;
+  /* lo centra horizontalmente */
+
+  padding: 12px 26px;
+  border-radius: 14px;
+  border: none;
+
+  font-weight: 800;
+  font-size: 15px;
+
+  cursor: pointer;
+
+  background: linear-gradient(180deg, #ffcc4d, #f4b316);
+  color: #1f2a44;
+}
+
+.reservaViaje button:hover {
+  filter: brightness(1.05);
 }

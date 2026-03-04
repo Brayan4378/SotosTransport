@@ -1,15 +1,136 @@
+<!-- index.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
-    <title>Soto´s transport</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Soto´s transport</title>
 </head>
+
 <body>
-    <h1>Sotos´s transport</h1>
-    <div id="banner">
-        <p>Promoción especial disponible hoy</p>
+  <div id="bannerSuperior">
+    <img src="../imagenes/logo.png" alt="logo" id="logo">
+
+    <div id="menu">
+      <button id="inicio">Inicio</button>
+      <button id="destinos">Destinos</button>
+      <button id="horarios">Horarios</button>
+      <button id="comprar">Comprar boleto</button>
+      <button id="contacto">Contacto</button>
     </div>
+
+    <a id="comprarAhora" href="login.html">Iniciar sesión</a>
+  </div>
+
+  <div class="contenedor">
+    <img id="imagenBus"
+      src="https://daimlerbuses-mbngw.scene7.com/is/image/daimlerbusesmbngw/mb-omniplus-service-keyvisual-EB51092%3A16x9?ts=1768311806114&dpr=off"
+      alt="Bus">
+    <div class="overlay"></div>
+
+    <div class="eslogan">
+      <h1>Viaja seguro y puntual</h1>
+      <p>Soto´s transport</p>
+    </div>
+
+    <div class="infoViaje">
+      <form action="selec" method="get">
+        <label for="origen">Origen:</label>
+        <select name="origen" id="origen" required>
+          <option value="armenia">Armenia</option>
+        </select>
+
+        <label for="destino">Destino:</label>
+        <select name="destino" id="destino" required>
+          <option value="" disabled selected>Seleccione destino</option>
+          <option value="bogota">Bogotá</option>
+          <option value="medellin">Medellín</option>
+          <option value="cali">Cali</option>
+        </select>
+
+        <label for="fecha">Fecha:</label>
+        <input type="date" id="fecha" name="fecha" required>
+
+        <label for="pasajeros">Pasajeros:</label>
+        <input type="number" id="pasajeros" name="pasajeros" min="1" max="50" required>
+
+        <button type="submit">Buscar</button>
+      </form>
+    </div>
+  </div>
+
+  <div class = "nuestrosMedios">
+    <h2>Nuestros Medios de Transporte</h2>
+    <div class="medios">
+      <div class="medio">
+        <img src="../imagenes/bus1.webp" alt="Bus 1">
+        <h3>Bus Ejecutivo</h3>
+        <p>Viaja con estilo y comodidad en nuestros buses ejecutivos, equipados con asientos reclinables, aire acondicionado y servicios a bordo para una experiencia de viaje premium.</p>
+      </div>
+      <div class="medio">
+        <img src="../imagenes/bus2.jpg" alt="Bus 2">
+        <h3>Bus Estándar</h3>
+        <p>Disfruta de un viaje cómodo y seguro en nuestros buses estándar, diseñados para ofrecer un equilibrio perfecto entre confort y accesibilidad para todos nuestros pasajeros.</p>
+      </div>
+      <div class="medio">
+        <img src="../imagenes/bus3.png" alt="Bus 3">
+        <h3>Bus Económico</h3>
+        <p>Viaja de manera económica sin sacrificar la calidad con nuestros buses económicos, ideales para aquellos que buscan una opción asequible sin comprometer la seguridad y el confort.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class = "nuestrosServicios">
+    <h2>Nuestros Servicios</h2>
+    <div class="servicios">
+      <div class="servicio">
+        <img src="../imagenes/seguridad.png" alt="Seguridad">
+        <h3>Seguridad</h3>
+        <p>Viaja con confianza, contamos con estrictas medidas de seguridad para garantizar tu bienestar en cada viaje.</p>
+      </div>
+      <div class="servicio">
+        <img src="../imagenes/puntualidad.png" alt="Puntualidad">
+        <h3>Puntualidad</h3>
+        <p>Valoramos tu tiempo, por eso nos comprometemos a llegar a tiempo a cada destino, para que puedas planificar tu día sin preocupaciones.</p>
+      </div>
+      <div class="servicio">
+        <img src="../imagenes/confort.png" alt="Confort">
+        <h3>Confort</h3>
+        <p>Disfruta de un viaje cómodo y relajante con nuestros asientos ergonómicos y servicios a bordo diseñados para tu comodidad.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="horariosDestacados">
+    <h2>Horarios Destacados</h2>
+    <div class="horarios">
+      <div class="horario">
+        <h3>Armenia - Bogotá</h3>
+        <p>Salida: 8:00 AM | Llegada: 12:00 PM</p>
+      </div>
+      <div class="horario">
+        <h3>Armenia - Medellín</h3>
+        <p>Salida: 9:00 AM | Llegada: 1:00 PM</p>
+      </div>
+      <div class="horario">
+        <h3>Armenia - Cali</h3>
+        <p>Salida: 10:00 AM | Llegada: 2:00 PM</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="piePagina">
+    <div id="contactInfo">
+      <h3>Contáctanos</h3>
+      <p>Tel: +57 321 2125935</p>
+      <p>Email: sotostransport@gmail.com</p>
+      <p>Dirección: Armenia Quindio, Colombia</p>
+    </div>
+
+    <div id="mapa"></div>
+  </div>
 </body>
+
 </html>
