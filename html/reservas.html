@@ -7,7 +7,7 @@
     <title>Soto´s transport</title>
     <link rel="icon" type="image/png" href="../imagenes/ian.jpeg">
     <link rel="stylesheet" href="../css/style.css">
-    <script src="../js/storage.js"></script>
+    <script src="../js/reservas.js"defer></script>
 </head>
 
 <body>
@@ -28,7 +28,7 @@
     <div class="contenedor">
 
         <div class="reservaViaje">
-            <form action="selec" method="get">
+            <form id="formReserva">
                 <label>
                     <input type="radio" name="tipo_viaje" value="ida_vuelta" checked>
                     Ida y vuelta
@@ -57,7 +57,7 @@
                 <label for="pasajeros">Pasajeros:</label>
                 <input type="number" id="pasajeros" name="pasajeros" min="1" max="50" required>
 
-                <button type="reserva">Reservar</button>
+                <button type="submit" name="reserva">Reservar</button>
             </form>
         </div>
     </div>

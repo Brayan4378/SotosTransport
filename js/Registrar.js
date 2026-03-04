@@ -1,46 +1,65 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const formulario = document.getElementById("FormularioLogin");
 
+  const formulario = document.getElementById("FormularioRegistro");
   const btnIniciarSesion = document.getElementById("btnRegistrar");
-  if(!btnIniciarSesion) return; // Si el botón no existe, no hacemos nada
-  btnIniciarSesion.addEventListener("click",function(){
-    window.location.href = "iniciarSesion.html";});
+
+  // Botón ir a login
+  btnIniciarSesion.addEventListener("click", () => {
+    window.location.href = "iniciarSesion.html";
+  });
 
   formulario.addEventListener("submit", (e) => {
     e.preventDefault();
 
-     const usuario = document.getElementById("usuario").value.trim();
+    const usuario = document.getElementById("usuario").value.trim();
     const documento = document.getElementById("documento").value.trim();
     const edad = document.getElementById("edad").value;
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value;
 
-
-    // 1) Traer lista actual (o crear una vacía)
     const lista = JSON.parse(localStorage.getItem("usuarios")) || [];
 
-    // 2) Validar que no exista el usuario (opcional pero recomendado)
+    const documentoExiste = lista.some(u => u.documento === documento);
+    const correoExiste = lista.some(u => u.email === email);
 
-  const documentoExiste = lista.some(u => u.documento === documento);
-  const correoExiste = lista.some(u => u.email === email);
+    if (correoExiste) {
+      mostrarMensaje("Ese correo ya está registrado");
+      return;
+    }
 
-  if (correoExiste) {
-    alert("Ese correo electrónico ya está en uso ❌");
-    return;
-  }
+    if (documentoExiste) {
+      mostrarMensaje("Ese documento ya está registrado");
+      return;
+    }
 
-  if (documentoExiste) {
-    alert("Ese documento ya está registrado ❌");
-    return;
-  }
+    const nuevoUsuario = {
+      usuario,
+      documento,
+      edad,
+      email,
+      password
+    };
 
-    // 3) Agregar nuevo usuario
-    lista.push({ usuario, documento, edad, email, password });
+    lista.push(nuevoUsuario);
 
-    // 4) Guardar lista actualizada
     localStorage.setItem("usuarios", JSON.stringify(lista));
 
-    alert("Usuario registrado ✅");
-    formulario.reset(); // limpia el formulario
+    mostrarMensaje("Usuario registrado con éxito");
+
+    formulario.reset();
   });
+
+
+  function mostrarMensaje(texto, color) {
+
+    const mensaje = document.getElementById("mensajeRegistro");
+
+    mensaje.innerHTML = "<strong>" + texto + "</strong>"; 
+    mensaje.style.color = color;
+
+    setTimeout(() => {
+      mensaje.textContent = ""; 
+    }, 3000);
+  }
+
 });

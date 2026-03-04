@@ -21,12 +21,11 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     if(usuarioEncontrado) {
-        alert("Inicio de sesión exitoso ✅");
-        // const bienvenida = document.getElementById("bienvenida");
-        // bienvenida.textContent = "Bienvenido " + usuarioEncontrado.nombre;
+        alert("Inicio de sesión exitoso ");
+
         window.location.href = "index.html";
     }else {
-        alert("Usuario o contraseña incorrectos ❌");
+        alert("Usuario o contraseña incorrectos ");
         return;
     } 
     });
