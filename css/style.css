@@ -523,9 +523,12 @@ body {
   flex-direction: column;
   gap: 12px;
 }
+
 #FormularioLogin button[type="submit"] {
-  width: 60%;        /* mas pequeño */
-  align-self: center; /* lo centra */
+  width: 60%;
+  /* mas pequeño */
+  align-self: center;
+  /* lo centra */
   padding: 10px;
   border-radius: 10px;
   border: none;
@@ -535,10 +538,14 @@ body {
   background: linear-gradient(180deg, #ffcc4d, #f4b316);
   color: #1f2a44;
 }
+
 #btnRegistrar {
-  background: transparent;  /* sin fondo */
-  border: none;            /* sin borde */
-  color: #ffcc4d;          /* amarillo */
+  background: transparent;
+  /* sin fondo */
+  border: none;
+  /* sin borde */
+  color: #ffcc4d;
+  /* amarillo */
   font-weight: 700;
   cursor: pointer;
   padding: 0;
@@ -548,4 +555,64 @@ body {
 #btnRegistra:hover {
   text-decoration: underline;
   opacity: 0.9;
+}
+
+/* ===== DESTINOS (Cali, Bogota, Medellin) ===== */
+
+#cali,
+#bogota,
+#medellin {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 30px;
+
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+
+  text-align: center;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+  backdrop-filter: blur(6px);
+
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+#cali:hover,
+#bogota:hover,
+#medellin:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .45);
+}
+
+/* titulos */
+#cali h1,
+#bogota h1,
+#medellin h1 {
+  color: #ffcc4d;
+  font-size: 32px;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+/* imagenes */
+#cali img,
+#bogota img,
+#medellin img {
+  width: 100%;
+  max-height: 350px;
+  object-fit: cover;
+
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+/* textos */
+#cali p,
+#bogota p,
+#medellin p {
+  font-size: 16px;
+  line-height: 1.6;
+  opacity: 0.9;
+  max-width: 800px;
+  margin: 0 auto;
 }
