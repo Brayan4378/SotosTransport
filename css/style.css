@@ -616,3 +616,69 @@ body {
   max-width: 800px;
   margin: 0 auto;
 }
+
+/* ===== RESERVA ESTILO BARRA (tipo avianca) ===== */
+
+.reservaViaje {
+  position: relative;
+  z-index: 3;
+
+  width: 96%;
+  max-width: 1200px;
+  margin: 60px auto;
+
+  padding: 18px 22px;
+
+  background: rgba(50, 53, 69, 0.95);
+  border-radius: 20px;
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, .25);
+}
+
+/* form horizontal */
+.reservaViaje form {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* radios juntos */
+.reservaViaje label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* inputs y selects */
+.reservaViaje select,
+.reservaViaje input[type="date"],
+.reservaViaje input[type="number"] {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  min-width: 140px;
+}
+
+/* boton grande a la derecha */
+.reservaViaje button {
+  margin: 0 auto;
+  /* lo centra horizontalmente */
+
+  padding: 12px 26px;
+  border-radius: 14px;
+  border: none;
+
+  font-weight: 800;
+  font-size: 15px;
+
+  cursor: pointer;
+
+  background: linear-gradient(180deg, #ffcc4d, #f4b316);
+  color: #1f2a44;
+}
+
+.reservaViaje button:hover {
+  filter: brightness(1.05);
+}
