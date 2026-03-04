@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "registrarse.html";
     });
 
+    
+
     const formulario = document.getElementById("FormularioLogin");
     formulario.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -15,18 +17,28 @@ document.addEventListener("DOMContentLoaded", () => {
         const password = document.getElementById("password").value;
 
     const lista = JSON.parse(localStorage.getItem("usuarios")) || [];
-
+      
     const usuarioEncontrado = lista.find(function(u) {
         return u.email === usuario && u.password === password;
     })
+    localStorage.setItem("usuarioActual", JSON.stringify(usuarioEncontrado));
+
+    const mensaje = document.getElementById("mensaje");
+
+    setTimeout(()=>{
+        mensaje.innerHTML = "";
+    },1500);
 
     if(usuarioEncontrado) {
-        alert("Inicio de sesión exitoso ✅");
-        // const bienvenida = document.getElementById("bienvenida");
-        // bienvenida.textContent = "Bienvenido " + usuarioEncontrado.nombre;
+        document.getElementById("mensaje").innerHTML =
+        "Bienvenido " + usuarioEncontrado.usuario + " ✅";     
+        setTimeout(() => {
         window.location.href = "index.html";
+     }, 1400);
+        
     }else {
-        alert("Usuario o contraseña incorrectos ❌");
+        document.getElementById("mensaje").innerHTML =
+      "Correo o contraseña incorrectos ❌";
         return;
     } 
     });
