@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const destinoSelect = document.getElementById("destino");
     const pasajerosInput = document.getElementById("pasajeros");
 
-    // Crear elemento para mostrar precio dinámico
     const precioPreview = document.createElement("div");
     precioPreview.style.marginTop = "10px";
     precioPreview.style.fontWeight = "bold";
@@ -16,10 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
         cali: 84200
     };
 
-    // 🔥 Evento cuando cambia destino
     destinoSelect.addEventListener("change", actualizarPrecio);
 
-    // 🔥 Evento cuando cambia número de pasajeros
     pasajerosInput.addEventListener("input", actualizarPrecio);
 
     function actualizarPrecio() {
@@ -34,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // 🔥 Evento submit
     formulario.addEventListener("submit", function (e) {
         e.preventDefault();
 
@@ -45,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const pasajeros = parseInt(pasajerosInput.value);
 
         if (!destino || !fecha || pasajeros <= 0) {
-            mostrarMensaje("Completa todos los campos ❌", "red");
+            mostrarMensaje("Completa todos los campos", "red");
             return;
         }
 
@@ -68,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
         reservas.push(nuevaReserva);
         localStorage.setItem("reservas", JSON.stringify(reservas));
 
-        mostrarMensaje("Reserva realizada con éxito ✅", "limegreen");
+        mostrarMensaje("Reserva realizada con éxito", "limegreen");
 
         formulario.reset();
         precioPreview.innerText = "";
