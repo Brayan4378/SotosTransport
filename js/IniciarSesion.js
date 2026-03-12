@@ -1,4 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+const listalogeo = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+const pruebaLogueo = listalogeo.find(function(u) {
+    return u.validacion === true;
+});
+
+const paginaActual = window.location.pathname.split("/").pop();
+
+if (!pruebaLogueo && paginaActual !== "iniciarSesion.html") {
+    window.location.href = "iniciarSesion.html";
+}
+
+if (pruebaLogueo && paginaActual === "iniciarSesion.html") {
+    window.location.href = "index.html";
+}
+
+
     // botin cambio de pagina a registrarse
     const btnRegistrar = document.getElementById("btnRegistrar");
     if (!btnRegistrar) return;
@@ -17,19 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // uso de localstorage para traer lista
     const lista = JSON.parse(localStorage.getItem("usuarios")) || [];
-    // verificar usuario logueado antes de iniciar sesion
-    const pruebaLogueo = lista.find(function(u) {
-        return u.validacion === true;
-    }
-
-    // cerrar sesion del usuario logueado
-    );
     
-    if(pruebaLogueo) {
-        pruebaLogueo.validacion = false;
-        localStorage.setItem("usuarios", JSON.stringify(lista));
-    }
-
     const usuarioEncontrado = lista.find(function(u) {
         return u.email === usuario && u.password === password;
     })
