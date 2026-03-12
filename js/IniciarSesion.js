@@ -15,14 +15,25 @@ document.addEventListener("DOMContentLoaded", () => {
         const usuario = document.getElementById("usuario").value.trim();
         const password = document.getElementById("password").value;
 
-        // uso de localstorage para traer lista
-        const lista = JSON.parse(localStorage.getItem("usuarios")) || [];
+    // uso de localstorage para traer lista
+    const lista = JSON.parse(localStorage.getItem("usuarios")) || [];
+    // verificar usuario logueado antes de iniciar sesion
+    const pruebaLogueo = lista.find(function(u) {
+        return u.validacion === true;
+    }
 
-        const usuarioEncontrado = lista.find(function (u) {
-            return u.email === usuario && u.password === password;
-        })
+    // cerrar sesion del usuario logueado
+    );
+    
+    if(pruebaLogueo) {
+        pruebaLogueo.validacion = false;
+        localStorage.setItem("usuarios", JSON.stringify(lista));
+    }
 
-        localStorage.setItem("usuarioActual", JSON.stringify(usuarioEncontrado));
+    const usuarioEncontrado = lista.find(function(u) {
+        return u.email === usuario && u.password === password;
+    })
+    
 
         // timer para mensaje de bienvenida o error
         const mensaje = document.getElementById("mensaje");
@@ -31,18 +42,20 @@ document.addEventListener("DOMContentLoaded", () => {
             mensaje.innerHTML = "";
         }, 1500);
 
-        // condicion inicio y manipulación del DOM para mensaje de bienvenida o error
-        if (usuarioEncontrado) {
-            document.getElementById("mensaje").innerHTML =
-                "Bienvenido " + usuarioEncontrado.usuario + " ✅";
-            setTimeout(() => {
-                window.location.href = "index.html";
-            }, 1400);
-
-        } else {
-            document.getElementById("mensaje").innerHTML =
-                "Correo o contraseña incorrectos ❌";
-            return;
-        }
+    // condicion inicio y manipulación del DOM para mensaje de bienvenida o error
+    if(usuarioEncontrado) {
+        usuarioEncontrado.validacion = true;
+        localStorage.setItem("usuarios", JSON.stringify(lista));
+        document.getElementById("mensaje").innerHTML =
+        "Bienvenido " + usuarioEncontrado.usuario + " ✅";     
+        setTimeout(() => {
+        window.location.href = "index.html";
+     }, 1400);
+        
+    }else {
+        document.getElementById("mensaje").innerHTML =
+      "Correo o contraseña incorrectos ❌";
+        return;
+    } 
     });
 });

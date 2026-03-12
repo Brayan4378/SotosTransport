@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const edad = document.getElementById("edad").value;
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value;
+    const  validacion = false;
 
 
     // 1) Traer lista actual (o crear una vacía)
@@ -35,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
     // 3) Agregar nuevo usuario
-    lista.push({ usuario, documento, edad, email, password });
+    lista.push({ usuario, documento, edad, email, password,validacion });
 
     // 4) Guardar lista actualizada
     localStorage.setItem("usuarios", JSON.stringify(lista));
