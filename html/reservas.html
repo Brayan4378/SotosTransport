@@ -17,17 +17,24 @@
         <nav id="menu">
             <a href="index.html">Inicio</a>
             <a href="destinos.html">Destinos</a>
-            <a href="reservas.html">Horarios</a>
+            <a href="reservas.html">Reservar</a>
             <a href="contacto.html">Contacto</a>
         </nav>
 
-        <a id="comprarAhora" href="reservas.html">Comprar ahora</a>
+        <div class="menu-usuario">
+            <a id="cuenta">👤 Cuenta Soto´s</a>
+            <div class="submenu" id="submenu">
+                <a href="perfil.html">Mi perfil</a>
+                <a href="logout.html">Cerrar sesión</a>
+            </div>
+        </div>
+
     </div>
 
     <div class="contenedor">
 
         <div class="reservaViaje">
-            <form id="formReserva">
+            <form id="formReserva"><a id="comprarAhora" href="reservas.html">👤Cuenta Soto´s</a>
                 <label>
                     <input type="radio" name="tipo_viaje" value="ida_vuelta" checked>
                     Ida y vuelta
@@ -146,6 +153,12 @@
             <div id="mapa"></div>
         </div>
 
+        <script>
+            document.getElementById("cuenta").addEventListener("click", function () {
+                const submenu = document.getElementById("submenu");
+                submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+            });
+        </script>
 </body>
 
 
