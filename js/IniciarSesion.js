@@ -17,12 +17,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // uso de localstorage para traer lista
     const lista = JSON.parse(localStorage.getItem("usuarios")) || [];
-      
+    // verificar usuario logueado antes de iniciar sesion
+    const pruebaLogueo = lista.find(function(u) {
+        return u.validacion === true;
+    }
+
+    // cerrar sesion del usuario logueado
+    );
+    
+    if(pruebaLogueo) {
+        pruebaLogueo.validacion = false;
+        localStorage.setItem("usuarios", JSON.stringify(lista));
+    }
+
     const usuarioEncontrado = lista.find(function(u) {
         return u.email === usuario && u.password === password;
     })
     
-    localStorage.setItem("usuarioActual", JSON.stringify(usuarioEncontrado));
 
     // timer para mensaje de bienvenida o error
     const mensaje = document.getElementById("mensaje");
@@ -33,6 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // condicion inicio y manipulación del DOM para mensaje de bienvenida o error
     if(usuarioEncontrado) {
+        usuarioEncontrado.validacion = true;
+        localStorage.setItem("usuarios", JSON.stringify(lista));
         document.getElementById("mensaje").innerHTML =
         "Bienvenido " + usuarioEncontrado.usuario + " ✅";     
         setTimeout(() => {
