@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const formulario = document.getElementById("FormularioLogin");
+  const formulario = document.getElementById("FormularioRegistro");
 
   const btnIniciarSesion = document.getElementById("btnRegistrar");
   if(!btnIniciarSesion) return; // Si el botón no existe, no hacemos nada

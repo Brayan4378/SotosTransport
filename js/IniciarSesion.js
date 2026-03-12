@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     // botin cambio de pagina a registrarse
     const btnRegistrar = document.getElementById("btnRegistrar");
-    if(!btnRegistrar) return;
+    if (!btnRegistrar) return;
 
     btnRegistrar.addEventListener("click", () => {
         window.location.href = "registrarse.html";
@@ -35,12 +35,12 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     
 
-    // timer para mensaje de bienvenida o error
-    const mensaje = document.getElementById("mensaje");
+        // timer para mensaje de bienvenida o error
+        const mensaje = document.getElementById("mensaje");
 
-    setTimeout(()=>{
-        mensaje.innerHTML = "";
-    },1500);
+        setTimeout(() => {
+            mensaje.innerHTML = "";
+        }, 1500);
 
     // condicion inicio y manipulación del DOM para mensaje de bienvenida o error
     if(usuarioEncontrado) {
