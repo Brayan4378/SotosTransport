@@ -25,7 +25,7 @@
       <a id="cuenta">👤 Cuenta Soto´s</a>
       <div class="submenu" id="submenu">
         <a href="perfil.html">Mi perfil</a>
-        <a href="logout.html">Cerrar sesión</a>
+        <button id="cerrarSesion">Cerrar sesión</button>
       </div>
     </div>
 
@@ -144,6 +144,9 @@
 
     <div id="mapa"></div>
   </div>
+  <script src="../js/IniciarSesion.js"></script>
+  <script src="../js/CerrarSesion.js"></script>
+
 
   <script>
     document.getElementById("cuenta").addEventListener("click", function () {
@@ -151,6 +154,7 @@
       submenu.style.display = submenu.style.display === "block" ? "none" : "block";
     });
   </script>
+
 </body>
 
 </html>
