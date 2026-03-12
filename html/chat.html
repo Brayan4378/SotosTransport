@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soto´s transport - Chat</title>
+    <link rel="stylesheet" href="../css/chat.css">
+</head>
+
+<body>
+
+    <div id="bannerSuperior">
+        <img src="../imagenes/logo.png" alt="logo" id="logo">
+
+        <nav id="menu">
+            <a href="index.html">Inicio</a>
+            <a href="destinos.html">Destinos</a>
+            <a href="reservas.html">Reservar</a>
+            <a href="chat.html">Contacto</a>
+        </nav>
+
+        <div class="menu-usuario">
+            <a id="cuenta">👤 Cuenta Soto´s</a>
+            <div class="submenu" id="submenu">
+                <a href="perfil.html">Mi perfil</a>
+                <a href="logout.html">Cerrar sesión</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="chat-container">
+        <div class="chat-header">
+            <h2>Soporte en línea</h2>
+        </div>
+        <div class="chat-box" id="chatBox">
+            <div class="mensaje soporte">
+                <p>¡Hola! Bienvenido al soporte de Soto´s. ¿En qué podemos ayudarte?</p>
+            </div>
+            <div class="mensaje usuario">
+                <p>Quiero información sobre los horarios destacados.</p>
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="mensajeInput" placeholder="Escribe tu mensaje...">
+            <button id="enviarBtn">Enviar</button>
+        </div>
+    </div>
+
+    <script>
+        
+        document.getElementById("cuenta").addEventListener("click", function () {
+            const submenu = document.getElementById("submenu");
+            submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+        });
+
+        // Simulación de envío de mensajes
+        const enviarBtn = document.getElementById("enviarBtn");
+        const chatBox = document.getElementById("chatBox");
+        const mensajeInput = document.getElementById("mensajeInput");
+
+        enviarBtn.addEventListener("click", () => {
+            if (mensajeInput.value.trim() !== "") {
+                const nuevoMensaje = document.createElement("div");
+                nuevoMensaje.classList.add("mensaje", "usuario");
+                nuevoMensaje.innerHTML = `<p>${mensajeInput.value}</p>`;
+                chatBox.appendChild(nuevoMensaje);
+                mensajeInput.value = "";
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }
+        });
+    </script>
+</body>
+
+</html>

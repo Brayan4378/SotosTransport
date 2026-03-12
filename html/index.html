@@ -16,13 +16,21 @@
     <nav id="menu">
       <a href="index.html">Inicio</a>
       <a href="destinos.html">Destinos</a>
-      <a href="reservas.html">Horarios</a>
+      <a href="horarios.html">Horarios</a>
       <a href="iniciarSesion.html">Iniciar sesión</a>
       <a href="registrarse.html">Registrarse</a>
-      <a href="contacto.html">Contacto</a>
+      <a href="reservas.html">Reservar</a>
+      <a href="chat.html">Contacto</a>
     </nav>
 
-    <a id="comprarAhora" href="reservas.html">Comprar ahora</a>
+    <div class="menu-usuario">
+      <a id="cuenta">👤 Cuenta Soto´s</a>
+      <div class="submenu" id="submenu">
+        <a href="perfil.html">Mi perfil</a>
+        <a href="logout.html">Cerrar sesión</a>
+      </div>
+    </div>
+
   </div>
 
   <div class="contenedor">
@@ -138,6 +146,13 @@
 
     <div id="mapa"></div>
   </div>
+
+  <script>
+    document.getElementById("cuenta").addEventListener("click", function () {
+      const submenu = document.getElementById("submenu");
+      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+    });
+  </script>
 </body>
 
 </html>
