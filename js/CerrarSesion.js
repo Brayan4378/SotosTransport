@@ -1,5 +1,5 @@
 
-const btnCerrarSesion = document.getElementById("btnCerrarSesion");
+const btnCerrarSesion = document.getElementById("cerrarSesion");
 
 if(btnCerrarSesion){
     btnCerrarSesion.addEventListener("click", cerrarSesion);
@@ -16,5 +16,5 @@ function cerrarSesion(){
 
     localStorage.setItem("usuarios", JSON.stringify(lista));
 
-    window.location.href = "login.html";
+    window.location.href = "iniciarSesion.html";
 }
