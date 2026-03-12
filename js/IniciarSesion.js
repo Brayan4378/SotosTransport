@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     // botin cambio de pagina a registrarse
     const btnRegistrar = document.getElementById("btnRegistrar");
-    if(!btnRegistrar) return;
+    if (!btnRegistrar) return;
 
     btnRegistrar.addEventListener("click", () => {
         window.location.href = "registrarse.html";
@@ -15,38 +15,34 @@ document.addEventListener("DOMContentLoaded", () => {
         const usuario = document.getElementById("usuario").value.trim();
         const password = document.getElementById("password").value;
 
-    // uso de localstorage para traer lista
-    const lista = JSON.parse(localStorage.getItem("usuarios")) || [];
-      
-    const usuarioEncontrado = lista.find(function(u) {
-        return u.email === usuario && u.password === password;
-    })
-    
-    localStorage.setItem("usuarioActual", JSON.stringify(usuarioEncontrado));
+        // uso de localstorage para traer lista
+        const lista = JSON.parse(localStorage.getItem("usuarios")) || [];
 
-    // timer para mensaje de bienvenida o error
-    const mensaje = document.getElementById("mensaje");
+        const usuarioEncontrado = lista.find(function (u) {
+            return u.email === usuario && u.password === password;
+        })
 
-    setTimeout(()=>{
-        mensaje.innerHTML = "";
-    },1500);
+        localStorage.setItem("usuarioActual", JSON.stringify(usuarioEncontrado));
 
-    // condicion inicio y manipulación del DOM para mensaje de bienvenida o error
-    if(usuarioEncontrado) {
+        // timer para mensaje de bienvenida o error
+        const mensaje = document.getElementById("mensaje");
 
-
-
-        document.getElementById("mensaje").innerHTML =
-        "Bienvenido " + usuarioEncontrado.usuario + " ✅";     
         setTimeout(() => {
-        window.location.href = "index.html";
-     }, 1400);
-        
-    }else {
+            mensaje.innerHTML = "";
+        }, 1500);
 
-        document.getElementById("mensaje").innerHTML =
-      "Correo o contraseña incorrectos ❌";
-        return;
-    } 
+        // condicion inicio y manipulación del DOM para mensaje de bienvenida o error
+        if (usuarioEncontrado) {
+            document.getElementById("mensaje").innerHTML =
+                "Bienvenido " + usuarioEncontrado.usuario + " ✅";
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 1400);
+
+        } else {
+            document.getElementById("mensaje").innerHTML =
+                "Correo o contraseña incorrectos ❌";
+            return;
+        }
     });
 });
