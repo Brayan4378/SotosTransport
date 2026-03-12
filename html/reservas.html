@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soto´s transport</title>
+    <title>Soto´s Transport - Reservas</title>
     <link rel="icon" type="image/png" href="../imagenes/ian.jpeg">
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/reservas.js" defer></script>
@@ -13,37 +14,22 @@
 <body>
     <div id="bannerSuperior">
         <img src="../imagenes/logo.png" alt="logo" id="logo">
-
         <nav id="menu">
-            <a href="index.html">Inicio</a>
-            <a href="destinos.html">Destinos</a>
-            <a href="reservas.html">Horarios</a>
-            <a href="iniciarSesion.html">Iniciar sesión</a>
-            <a href="registrarse.html">Registrarse</a>
-            <a href="contacto.html">Contacto</a>
+            <a href="index.html">Inicio</a> <a href="destinos.html">Destinos</a> <a href="horarios.html">Horarios</a> <a
+                href="reservas.html"><strong>Reservas</strong></a> <a href="iniciarSesion.html">Iniciar sesión</a> <a
+                href="registrarse.html">Registrarse</a> <a href="contacto.html">Contacto</a>
         </nav>
-
         <a id="comprarAhora" href="reservas.html">Comprar ahora</a>
     </div>
 
     <div class="contenedor">
-
         <div class="reservaViaje">
+            <h2>Reserva tu viaje</h2>
             <form id="formReserva">
-                <label>
-                    <input type="radio" name="tipo_viaje" value="ida_vuelta" checked>
-                    Ida y vuelta
-                </label>
-                <label>
-                    <input type="radio" name="tipo_viaje" value="solo_ida">
-                    Solo ida
-                </label>
-
                 <label for="origen">Origen:</label>
                 <select name="origen" id="origen" required>
                     <option value="armenia">Armenia</option>
                 </select>
-
                 <label for="destino">Destino:</label>
                 <select name="destino" id="destino" required>
                     <option value="" disabled selected>Seleccione destino</option>
@@ -51,14 +37,21 @@
                     <option value="medellin">Medellín</option>
                     <option value="cali">Cali</option>
                 </select>
-
+                <label for="hora">Horario:</label>
+                <select name="hora" id="hora" required>
+                    <option value="" disabled selected>Seleccione horario</option>
+                    <option value="06:00">06:00 AM</option>
+                    <option value="07:30">07:30 AM</option>
+                    <option value="08:00">08:00 AM</option>
+                    <option value="14:00">02:00 PM</option>
+                    <option value="16:00">04:00 PM</option>
+                    <option value="17:00">05:00 PM</option>
+                </select>
                 <label for="fecha">Fecha:</label>
                 <input type="date" id="fecha" name="fecha" required>
-
                 <label for="pasajeros">Pasajeros:</label>
                 <input type="number" id="pasajeros" name="pasajeros" min="1" max="50" required>
-
-                <button type="submit" name="reserva">Reservar</button>
+                <button type="submit">Reservar</button>
             </form>
         </div>
     </div>
@@ -68,87 +61,6 @@
             src="https://media.istockphoto.com/id/1154164634/es/foto/autob%C3%BAs-blanco-viajando-en-la-carretera-de-asfalto-alrededor-de-la-l%C3%ADnea-de-%C3%A1rboles-en-el.jpg?b=1&s=1024x1024&w=0&k=20&c=-DNj2gk6ZYE8PrGwbV2XfHiOvYf17Elw4iwdI1wycSM="
             alt="Bus">
     </div>
-
-
-    <div id="ofertas">
-        <h2>Ofertas Especiales</h2>
-
-        <div class="ofertas">
-
-            <div class="card-oferta">
-                <img
-                    src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/4f/61/0b/caption.jpg?w=500&h=400&s=1">
-                <div class="info">
-                    <h3>Bogota</h3>
-                    <span class="millas">Acumula millas</span>
-                    <p>Por trayecto desde</p>
-                    <strong>COP 78.700</strong>
-                </div>
-            </div>
-
-            <div class="card-oferta">
-                <img
-                    src="https://www.semana.com/resizer/v2/TXYNYBTBSJFWJOKAWZ2FPSAKUM.jpg?smart=true&auth=a09223b46e0d3e9b00e655c7e827e7f335ff4ada894e213e6111763eb7e45998&width=1280&height=720">
-                <div class="info">
-                    <h3>Medellin</h3>
-                    <span class="millas">Acumula millas</span>
-                    <p>Por trayecto desde</p>
-                    <strong>COP 82.400</strong>
-                </div>
-            </div>
-
-            <div class="card-oferta">
-                <img
-                    src="https://www.elpais.com.co/resizer/v2/MOXPBNBUVBH7DGLY4DNWWGAQHY.jpg?auth=bbd64fd937de75c36f9a591dc91404572b003031d70f6be5eb7609f7cabf2f95&smart=true&quality=75&width=1280&height=720">
-                <div class="info">
-                    <h3>Cali</h3>
-                    <span class="millas">Acumula millas</span>
-                    <p>Por trayecto desde</p>
-                    <strong>COP 84.200</strong>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-
-    <div class="preparate">
-        <h2>Prepárate para tu viaje</h2>
-        <p>Antes de emprender tu viaje, asegúrate de revisar nuestros consejos y recomendaciones para garantizar una
-            experiencia de viaje segura y placentera.</p>
-        <div class="consejos">
-            <div class="consejo">
-                <img src="https://static.eldiario.es/clip/1ae799ae-0449-46bd-842c-8b9edf2b4f13_16-9-discover-aspect-ratio_default_0.jpg"
-                    alt="Consejo 1">
-                <h3>Empaca ligero</h3>
-                <p>Viaja con lo esencial para evitar complicaciones y disfrutar de un viaje más cómodo.</p>
-            </div>
-            <div class="consejo">
-                <img src="https://cdn-icons-png.flaticon.com/512/17314/17314612.png" alt="Consejo 2">
-                <h3>Llega temprano</h3>
-                <p>Te recomendamos llegar al punto de partida al menos 30 minutos antes de la salida para evitar
-                    contratiempos.</p>
-            </div>
-            <div class="consejo">
-                <img src="https://elcomercio.pe/resizer/v2/5O74MBLGH5AN5CMHJVGDHSZG4Y.jpg?auth=1abc90a16f55059e9eb420fab21a13e8999f2eddac94f029a995693eb6af6b20&width=2400&height=1620&quality=75&smart=true"
-                    alt="Consejo 3">
-                <h3>Revisa tu boleto</h3>
-                <p>Asegúrate de tener tu boleto a mano y revisa los detalles de tu viaje para evitar confusiones.</p>
-            </div>
-        </div>
-
-        <div id="piePagina">
-            <div id="contactInfo">
-                <h3>Contáctanos</h3>
-                <p>Tel: +57 321 2125935</p>
-                <p>Email: sotostransport@gmail.com</p>
-                <p>Dirección: Armenia Quindio, Colombia</p>
-            </div>
-
-            <div id="mapa"></div>
-        </div>
-
 </body>
-
 
 </html>

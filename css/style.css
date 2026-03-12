@@ -566,3 +566,65 @@ body {
   font-size: 14px;
   margin-top: 8px;
 }
+
+/* ========================================
+   HORARIOS (tabla de reservas)
+======================================== */
+
+.horarios{
+  width:100%;
+  max-width:1100px;
+  margin:auto;
+  z-index:2;
+  position:relative;
+}
+
+/* tabla */
+.tabla-horarios{
+  width:100%;
+  border-collapse:collapse;
+  background:rgba(10,31,69,.85);
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 12px 30px rgba(0,0,0,.4);
+}
+
+/* encabezado */
+.tabla-horarios thead{
+  background:linear-gradient(180deg,#ffcc4d,#f4b316);
+  color:#1f2a44;
+}
+
+.tabla-horarios th{
+  padding:14px;
+  font-size:14px;
+  font-weight:700;
+}
+
+/* celdas */
+.tabla-horarios td{
+  padding:14px;
+  text-align:center;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+/* hover filas */
+.tabla-horarios tbody tr:hover{
+  background:rgba(255,255,255,.08);
+  transition:.2s;
+}
+
+/* botón reservar */
+.tabla-horarios button{
+  background:linear-gradient(180deg,#ffcc4d,#f4b316);
+  border:none;
+  padding:8px 14px;
+  border-radius:8px;
+  font-weight:700;
+  cursor:pointer;
+  color:#1f2a44;
+}
+
+.tabla-horarios button:hover{
+  transform:scale(1.05);
+}
