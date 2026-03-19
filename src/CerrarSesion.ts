@@ -6,9 +6,9 @@ if(btnCerrarSesion){
 }
    
 function cerrarSesion(){
-    const lista = JSON.parse(localStorage.getItem("usuarios")) || [];
+    const lista = JSON.parse(localStorage.getItem("usuarios") || "[]");
 
-    const usuarioActivo = lista.find(u => u.validacion === true);
+    const usuarioActivo = lista.find((u: any) => u.validacion === true);
 
     if(usuarioActivo){
         usuarioActivo.validacion = false;
