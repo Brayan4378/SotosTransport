@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Elementos del DOM
     const formulario = document.getElementById("formReserva");
     const destinoSelect = document.getElementById("destino");
     const pasajerosInput = document.getElementById("pasajeros");
@@ -8,12 +7,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const horaInput = document.getElementById("hora");
     if (!formulario || !destinoSelect || !pasajerosInput || !fechaInput || !origenInput || !horaInput)
         return;
-    // Preview del precio
     const precioPreview = document.createElement("div");
     precioPreview.style.marginTop = "10px";
     precioPreview.style.fontWeight = "bold";
     formulario.appendChild(precioPreview);
-    // Objetos tipados correctamente
     const horariosValidos = {
         bogota: ["06:00", "14:00"],
         medellin: ["07:30", "16:00"],
@@ -24,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
         medellin: 82400,
         cali: 84200
     };
-    // Eventos
     destinoSelect.addEventListener("change", actualizarPrecio);
     pasajerosInput.addEventListener("input", actualizarPrecio);
     function actualizarPrecio() {
@@ -49,7 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const fechaSeleccionada = new Date(fecha);
         hoy.setHours(0, 0, 0, 0);
         fechaSeleccionada.setHours(0, 0, 0, 0);
-        // Validaciones
         if (!destino || !hora || !fecha || pasajeros <= 0) {
             mostrarMensaje("Completa todos los campos correctamente", "red");
             return;
