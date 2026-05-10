@@ -1,0 +1,58 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #eef3f8;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #eef3f8;
+  color: #17314f;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.react-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.react-view {
+  flex: 1;
+}
+
+.demo-footer {
+  background: #0d2748;
+  color: #f4f8ff;
+  padding: 20px 28px;
+  border-top: 3px solid #f4b316;
+  font-size: 14px;
+}
+
+.footer-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.footer-grid strong {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.footer-grid p {
+  margin: 4px 0;
+  color: #d6e4f3;
+}
+
+@media (max-width: 960px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}

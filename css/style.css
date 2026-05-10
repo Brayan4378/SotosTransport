@@ -749,3 +749,190 @@ body {
   border-radius: 0 0 8px 0;
   font-weight: bold;
 }
+
+.filtro-horarios {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 18px;
+}
+
+.filtro-horarios input {
+  padding: 10px 12px;
+  border: none;
+  border-radius: 10px;
+}
+
+.estado-bus {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, .08);
+  color: #ffcc4d;
+  font-weight: 600;
+}
+
+.sin-cupos {
+  color: #ff8a8a;
+  font-weight: 700;
+}
+
+.con-cupos {
+  color: #7fffd4;
+  font-weight: 700;
+}
+
+.operaciones-panel {
+  min-height: calc(100vh - 80px);
+  padding: 50px 24px;
+  background:
+    radial-gradient(circle at top right, rgba(255, 204, 77, .18), transparent 30%),
+    linear-gradient(180deg, #0b1f3a, #071632);
+}
+
+.operaciones-bloque {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.operaciones-bloque h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.operaciones-bloque > p {
+  color: #dbe7ff;
+  margin-bottom: 30px;
+}
+
+.operaciones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.operaciones-formulario {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.campo-operacion {
+  background: rgba(255, 255, 255, .08);
+  border-radius: 16px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, .12);
+}
+
+.campo-operacion label {
+  display: block;
+  margin-bottom: 8px;
+  color: #dbe7ff;
+  font-weight: 700;
+}
+
+.campo-operacion input,
+.campo-operacion select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+}
+
+.operacion-card {
+  background: rgba(255, 255, 255, .08);
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .22);
+}
+
+.operacion-card h2 {
+  color: #ffcc4d;
+  margin-bottom: 16px;
+}
+
+.operacion-card input {
+  width: 100%;
+  margin: 8px 0 14px;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+}
+
+.botones-operacion {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.botones-operacion button {
+  background: linear-gradient(180deg, #ffcc4d, #f4b316);
+  color: #1f2a44;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.resultado-operacion,
+.contador-label {
+  margin-top: 18px;
+  color: #dbe7ff;
+}
+
+.contador-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contador-valor {
+  font-size: 64px;
+  font-weight: 900;
+  color: #ffcc4d;
+  margin: 8px 0 12px;
+}
+
+.lista-operaciones {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.mini-operacion {
+  background: rgba(255, 255, 255, .08);
+  border-radius: 14px;
+  padding: 16px;
+  text-align: center;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mini-operacion span {
+  color: #ffcc4d;
+}
+
+#mensajeReserva,
+#mensajeRegistro {
+  padding: 12px 14px;
+  border-radius: 12px;
+}
+
+.mensaje-positivo {
+  background: rgba(50, 205, 50, .15);
+  border: 1px solid rgba(50, 205, 50, .5);
+  color: #7cff7c !important;
+}
+
+.mensaje-negativo {
+  background: rgba(255, 0, 0, .12);
+  border: 1px solid rgba(255, 99, 99, .45);
+  color: #ff8a8a !important;
+}

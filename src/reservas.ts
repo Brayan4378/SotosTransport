@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-
     type Destino = "bogota" | "medellin" | "cali";
 
     interface Reserva {
@@ -11,19 +10,30 @@ document.addEventListener("DOMContentLoaded", () => {
         precioTotal: number;
     }
 
-    const formulario = document.getElementById("formReserva") as HTMLFormElement;
-    const destinoSelect = document.getElementById("destino") as HTMLSelectElement;
-    const pasajerosInput = document.getElementById("pasajeros") as HTMLInputElement;
-    const fechaInput = document.getElementById("fecha") as HTMLInputElement;
-    const origenInput = document.getElementById("origen") as HTMLInputElement;
-    const horaInput = document.getElementById("hora") as HTMLInputElement;
+    const formulario = document.getElementById("formReserva") as HTMLFormElement | null;
+    const destinoCampo = document.getElementById("destino") as HTMLSelectElement | null;
+    const pasajerosCampo = document.getElementById("pasajeros") as HTMLInputElement | null;
+    const fechaCampo = document.getElementById("fecha") as HTMLInputElement | null;
+    const origenCampo = document.getElementById("origen") as HTMLInputElement | null;
+    const horaCampo = document.getElementById("hora") as HTMLInputElement | null;
+    const disponibilidadTexto = document.getElementById("disponibilidadBus") as HTMLParagraphElement | null;
 
-    if (!formulario || !destinoSelect || !pasajerosInput || !fechaInput || !origenInput || !horaInput) return;
+    if (!formulario || !destinoCampo || !pasajerosCampo || !fechaCampo || !origenCampo || !horaCampo || !window.ViajesUtils) {
+        return;
+    }
 
+    const form = formulario;
+    const destinoInput = destinoCampo;
+    const pasajerosInput = pasajerosCampo;
+    const fechaInput = fechaCampo;
+    const origenInput = origenCampo;
+    const horaInput = horaCampo;
+    const utils = window.ViajesUtils;
     const precioPreview = document.createElement("div");
     precioPreview.style.marginTop = "10px";
     precioPreview.style.fontWeight = "bold";
-    formulario.appendChild(precioPreview);
+    form.appendChild(precioPreview);
+    fechaInput.min = utils.obtenerFechaMinima();
 
     const horariosValidos: Record<Destino, string[]> = {
         bogota: ["06:00", "14:00"],
@@ -37,75 +47,119 @@ document.addEventListener("DOMContentLoaded", () => {
         cali: 84200
     };
 
-    destinoSelect.addEventListener("change", actualizarPrecio);
+    destinoInput.addEventListener("change", actualizarPrecio);
     pasajerosInput.addEventListener("input", actualizarPrecio);
+    destinoInput.addEventListener("change", actualizarDisponibilidad);
+    horaInput.addEventListener("change", actualizarDisponibilidad);
+    fechaInput.addEventListener("change", actualizarDisponibilidad);
 
     function actualizarPrecio(): void {
-        const destino = destinoSelect.value as Destino;
+        const destino = destinoInput.value as Destino;
         const pasajeros = Number(pasajerosInput.value);
 
-        if (precios[destino] && pasajeros > 0) {
+        if (precios[destino] && Number.isInteger(pasajeros) && pasajeros > 0 && pasajeros <= 50) {
             const total = precios[destino] * pasajeros;
-            precioPreview.innerText = "Total estimado: COP " + total.toLocaleString();
-        } else {
-            precioPreview.innerText = "";
+            precioPreview.innerText = `Total estimado: COP ${total.toLocaleString()}`;
+            return;
         }
+
+        precioPreview.innerText = "";
     }
 
-    formulario.addEventListener("submit", (e: Event) => {
-        e.preventDefault();
+    function actualizarDisponibilidad(): void {
+        if (!disponibilidadTexto) {
+            return;
+        }
+
+        const destino = destinoInput.value as Destino;
+        const hora = horaInput.value;
+        const fecha = fechaInput.value;
+
+        if (!destino || !hora || !fecha) {
+            disponibilidadTexto.textContent = "Selecciona destino, horario y fecha para consultar los cupos del bus.";
+            return;
+        }
+
+        const ruta = utils.obtenerRuta(destino, hora);
+
+        if (!ruta) {
+            disponibilidadTexto.textContent = "No hay un bus configurado para esa combinacion.";
+            return;
+        }
+
+        const asientosDisponibles = utils.calcularAsientosDisponibles(destino, hora, fecha);
+        disponibilidadTexto.textContent = `Bus ${ruta.bus}: ${asientosDisponibles} asientos disponibles para el ${fecha}.`;
+    }
+
+    formulario.addEventListener("submit", (evento: Event) => {
+        evento.preventDefault();
 
         const origen = origenInput.value;
-        const destino = destinoSelect.value as Destino;
+        const destino = destinoInput.value as Destino;
         const hora = horaInput.value;
         const fecha = fechaInput.value;
         const pasajeros = Number(pasajerosInput.value);
 
         const hoy = new Date();
         const fechaSeleccionada = new Date(fecha);
+        const fechaLimite = new Date();
+        fechaLimite.setDate(fechaLimite.getDate() + 365);
 
         hoy.setHours(0, 0, 0, 0);
         fechaSeleccionada.setHours(0, 0, 0, 0);
+        fechaLimite.setHours(0, 0, 0, 0);
 
-        if (!destino || !hora || !fecha || pasajeros <= 0) {
-            mostrarMensaje("Completa todos los campos correctamente", "red");
+        if (!origen || !destino || !hora || !fecha) {
+            mostrarMensaje("Debes seleccionar origen, destino, horario y fecha.", "red");
+            return;
+        }
+
+        if (!Number.isInteger(pasajeros) || pasajeros < 1 || pasajeros > 50) {
+            mostrarMensaje("La cantidad de pasajeros debe ser un numero entero entre 1 y 50.", "red");
             return;
         }
 
         if (fechaSeleccionada < hoy) {
-            mostrarMensaje("No puedes seleccionar una fecha pasada", "red");
+            mostrarMensaje("No puedes seleccionar una fecha pasada.", "red");
+            return;
+        }
+
+        if (fechaSeleccionada > fechaLimite) {
+            mostrarMensaje("Solo puedes reservar con maximo 365 dias de anticipacion.", "red");
             return;
         }
 
         if (horariosValidos[destino].indexOf(hora) === -1) {
-            mostrarMensaje("Ese horario no está disponible para ese destino", "red");
+            mostrarMensaje("Ese horario no esta disponible para ese destino.", "red");
             return;
         }
 
-        const precioTotal = precios[destino] * pasajeros;
+        const asientosDisponibles = utils.calcularAsientosDisponibles(destino, hora, fecha);
 
-        const nuevaReserva: Reserva = {
+        if (pasajeros > asientosDisponibles) {
+            mostrarMensaje(`Solo quedan ${asientosDisponibles} asientos para esa fecha y horario.`, "red");
+            actualizarDisponibilidad();
+            return;
+        }
+
+        const reservas = utils.obtenerReservas() as Reserva[];
+        reservas.push({
             origen,
             destino,
             hora,
             fecha,
             pasajeros,
-            precioTotal
-        };
+            precioTotal: precios[destino] * pasajeros
+        });
 
-        const reservas: Reserva[] = JSON.parse(localStorage.getItem("reservas") || "[]");
-
-        reservas.push(nuevaReserva);
-
-        localStorage.setItem("reservas", JSON.stringify(reservas));
-
-        mostrarMensaje("Reserva realizada con éxito", "limegreen");
-
-        formulario.reset();
+        utils.guardarReservas(reservas);
+        mostrarMensaje("Reserva realizada con exito.", "limegreen");
+        form.reset();
         precioPreview.innerText = "";
+        actualizarDisponibilidad();
     });
 
-    function mostrarMensaje(texto: string, color: string = "white"): void {
+    function mostrarMensaje(texto: string, color = "white"): void {
         let mensaje = document.getElementById("mensajeReserva") as HTMLDivElement | null;
 
         if (!mensaje) {
@@ -113,11 +167,13 @@ document.addEventListener("DOMContentLoaded", () => {
             mensaje.id = "mensajeReserva";
             mensaje.style.marginTop = "15px";
             mensaje.style.fontWeight = "bold";
-            formulario.appendChild(mensaje);
+            form.appendChild(mensaje);
         }
 
         mensaje.innerText = texto;
         mensaje.style.color = color;
+        mensaje.className = color === "limegreen" ? "mensaje-positivo" : "mensaje-negativo";
     }
 
+    actualizarDisponibilidad();
 });
